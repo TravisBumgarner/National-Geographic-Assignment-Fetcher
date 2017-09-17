@@ -5,6 +5,8 @@ import sys
 
 from bs4 import BeautifulSoup
 
+from pushover import send
+
 logging.basicConfig(filename='log.txt',level=logging.DEBUG)
 
 def my_handler(type, value, tb):
@@ -41,7 +43,10 @@ def main():
     changed_titles = new_titles - old_titles
     if changed_titles:
         today = datetime.date.today()
-        logging.info("{}: {}".format(today, changed_titles))
+        message = "{}: {}".format(today, changed_titles)
+
+        logging.info(message)
+        send(message)
 
     # Save current titles to be checked against later.
     with open("./old_titles.txt", "w+") as f:
