@@ -1,4 +1,7 @@
 log.txt
 old_titles.txt
 .idea/
-*_config.py
+a*_config.py
+*.pyc
+bash_cron_log.txt
+
