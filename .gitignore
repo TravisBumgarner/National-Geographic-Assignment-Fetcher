@@ -4,4 +4,4 @@ old_titles.txt
 *_config.py
 *.pyc
 bash_cron_log.txt
-
+pushover_config.py

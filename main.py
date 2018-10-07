@@ -43,12 +43,14 @@ def main():
 
     # Report if any titles have changed.
     changed_titles = new_titles - old_titles
+    today = datetime.date.today()
     if changed_titles:
-        today = datetime.date.today()
         message = "{}: {}".format(today, changed_titles)
 
         logging.info(message)
         send(message)
+    else:
+        send("{}: Nothing new.".format(today))
 
     # Save current titles to be checked against later.
     with open("./old_titles.txt", "w+") as f:
